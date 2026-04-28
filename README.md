@@ -1,93 +1,83 @@
-ODAGPT
+# ODAGPT
+[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/Hundaol-Aberra/ODA-GPT)
 
-ODAGPT is a local-language AI chatbot that breaks communication barriers using real-time translation and AI-generated responses. It focuses on accessibility and support for underrepresented languages.
+ODAGPT is a desktop AI chatbot designed to bridge language gaps, with a special focus on underrepresented languages from Ethiopia. It leverages real-time translation and powerful language models to enable seamless communication across different languages.
 
-Overview
+## Overview
 
-ODAGPT lets you interact in your native language while the system handles translation and response generation.
+ODAGPT allows you to interact with an AI in your native language. You type a message, the system translates it for an AI model to process, and then translates the AI's response back into your selected language. The application features a full user authentication system and persists chat history for each user.
 
-You type in one language. The system translates it, processes it using AI, and returns a response in your selected language.
+## Features
 
-Features
-Multilingual Support
-Communicate across different languages in real time
-Text-Based Interaction
-Input and output are currently text only
-AI-Powered Responses
-Uses Gemini API for generating responses
-Real-Time Translation
-Integrated with Google Translate API
-Custom UI
-Built using customtkinter
-Accessibility-Oriented Design
-Focused on simplifying communication across language barriers
+-   **Multilingual Chat:** Supports real-time conversations in English, Amharic, Afaan Oromo, Tigrinya, and Somali.
+-   **Real-time Translation:** Utilizes the Google Translate API (via `deep-translator`) to convert user input for the AI and translate the AI's response back to the user's chosen language.
+-   **AI-Powered Responses:** Integrates with the Google Gemini API to provide intelligent and context-aware answers.
+-   **User Authentication:** A secure login and sign-up system to manage user accounts, with credentials stored in a local SQLite database.
+-   **Persistent Chat History:** Saves your conversation history to the database, which is loaded and displayed in the UI upon login for easy reference.
+-   **Intuitive GUI:** Built with CustomTkinter for a modern and clean, full-screen user experience.
 
-System Architecture
-User Input (Text)
-        ↓
-Language Detection
-        ↓
-Translation (to processing language)
-        ↓
-AI Processing (Gemini API)
-        ↓
-Translation (to target language)
-        ↓
-Output (Text)
+## Tech Stack
 
-Tech Stack
+-   **Language:** Python
+-   **GUI Framework:** CustomTkinter, Pillow
+-   **AI:** Google Gemini API (`google-generativeai`)
+-   **Translation:** Deep-Translator library
+-   **Database:** SQLite3
 
-Language: Python
-UI: customtkinter
-AI Model: Gemini API
-Translation: Google Translate API
+## Installation and Setup
 
-Installation
+Follow these steps to get ODAGPT running on your local machine.
 
-Clone the repository
-git clone https://github.com/your-username/odagpt.git
-cd odagpt
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/hundaol-aberra/oda-gpt.git
+    cd oda-gpt
+    ```
 
-Set up API keys
+2.  **Install dependencies:**
+    ```bash
+    pip install customtkinter Pillow google-generativeai deep-translator
+    ```
 
-Create a .env file:
+3.  **Configure API Key:**
+    -   Obtain a free Google Gemini API Key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+    -   Open the `odagpt.py` file in a text editor.
+    -   Locate the `API_KEY` variable and replace the placeholder with your key:
+        ```python
+        API_KEY = 'YOUR_GEMINI_API_KEY_HERE' # enter your API key
+        ```
 
-GEMINI_API_KEY=your_key_here
-GOOGLE_TRANSLATE_API_KEY=your_key_here
+## How to Use
 
-Run the application
-python main.py
+1.  Run the application from your terminal:
+    ```bash
+    python odagpt.py
+    ```
 
-Usage
-Launch the app
-Select input and output languages
-Enter text
-View translated AI response
+2.  The application will launch in fullscreen. Click the **CONTINUE** button on the welcome screen.
 
-Project Goals
+3.  On the login screen, either log in with existing credentials or click the **SignUp** text to create a new account.
 
-Support Ethiopian and other low-resource languages
-Work in low-bandwidth environments
-Provide a simple AI interface for multilingual communication
+4.  Once logged in, you will be directed to the main chat interface. Your previous chat history will be loaded on the left-hand side.
 
-Limitations
+5.  Type your message in the input field at the bottom of the screen.
 
-Text-only interaction, no speech features yet
-Depends on internet connection for APIs
-Translation accuracy varies by language
+6.  Select your desired output language from the buttons on the right side of the screen (e.g., `A/OROMOO`, `AMHARIC`, `ENGLISH`).
 
-Future Improvements
+7.  Press the send button or hit the `Enter` key to get a response.
 
-Add speech-to-text and text-to-speech
-Offline-first functionality
-Custom-trained models for local languages
-Mobile version
+8.  The conversation will appear in the main chat window. To start a new conversation, simply type a new message.
 
-Contributing
-Fork the repository
-Create a branch
-Submit a pull request
+## Contributing
 
-License
+Contributions are welcome! If you'd like to improve ODAGPT, please follow these steps:
 
-MIT License
+1.  Fork the repository.
+2.  Create a new branch for your feature (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
